@@ -5,12 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A simple TicTacToe-Game">
   <meta name="keywords" content="tictactoe, tic, tac, toe, game">
+  
   <link href="assets/css/styles.css" rel="stylesheet">
 
   <title># TicTacToe</title>
 </head>
 <body>
   <h1>Tic Tac Toe</h1>
+
+  <section id="whosTurn">
+    <h2>Next move for player: <span>X</span></h2>
+  </section>
 
   <section id="gameboard">
     <div class="field" id="field_0"></div>
@@ -24,13 +29,12 @@
     <div class="field" id="field_8"></div>
   </section>
 
-  <section id="whosTurn">
-
-  </section>
-
   <section id="gameCounter">
-
+    <h3>X won: <span id="xWon">0</span></h3>
+    <h3>O won: <span id="oWon">0</span></h3>
   </section>
-  
+
+  <button class="resetButton">Reset Gameboard</button>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
