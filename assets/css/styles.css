@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuggles&display=swap');
+
 body {
   display: flex;
   flex-direction: column;
@@ -24,12 +26,16 @@ body {
 
 .fields {
   display: flex;
-  align-content: center;
+  align-items: center;
   justify-content: center;
   width: 100px;
   height: 100px;
   border: 2px solid slategray;
   box-sizing: border-box;
+
+  font-family: 'Fuggles', cursive;
+  font-size: xxx-large;
+  font-weight: 800;
 }
 
 #resetButton {
