@@ -12,7 +12,7 @@ const winSchemes = [
 let gameStatus = ["", "", "", "", "", "", "", "", ""];
 
 // Wait for the DOM to be loaded, then start game
-document.addEventListener("DOMContentLoaded", startGame())
+document.addEventListener("DOMContentLoaded", startGame)
 
 /**
  * Start / Restart game and set all parameters to start
@@ -21,32 +21,53 @@ function startGame() {
 
   //Add Eventlistener for fields on gameboard
   let fields = document.getElementsByClassName("fields");
+  let rButton = document.getElementById("resetButton");
 
   for (let field of fields) {
-    
-  }
-}
+    let fieldId = field.getAttribute("id");
+    field.addEventListener("click", function() {
 
-/**
- * When a field is clicked, get player from DOM and mark the field
- * with the corresponding letter 
- */
-function displayMove(fieldId) {
-  currentPlayer = document.getElementById("currentPlayer").innerText;
-  document.getElementById(fieldId).innerText = currentPlayer;
+      let currentPlayer = document.getElementById("currentPlayer").innerText;
+      document.getElementById(fieldId).innerText = currentPlayer;
+
+      gameStatus[fieldId] = currentPlayer;
+
+      incOWon();
+      incXWon();
+      switchPlayer(currentPlayer); 
+    });
+   }
+
+  rButton.addEventListener("click", function() {
+
+    console.log("Restart");
+
+    document.getElementById("xWon").innerText = "0";
+    document.getElementById("oWon").innerText = "0";
+  
+    let fields = document.getElementsByClassName("field");
+    for (let field of fields){
+      field.innerText = "";
+    }
+  
+    gameStatus = ["", "", "", "", "", "", "", "", ""];
+  });
 }
 
 /**
  * Get Player from DOM and switch it. Display the new player
  */
-function switchPlayer() {
-  currentPlayer = document.getElementById("currentPlayer").innerText;
-  if (currentPlayer = "X") {
-    currentPlayer = "O";
+function switchPlayer(cPlayer) {
+  
+  let newcPlayer = "";
+
+  if (cPlayer === "X") {
+    (newcPlayer = "O");
   } else {
-    currentPlayer = "X";
+    (newcPlayer = "X");
   };
-  document.getElementById("currentPlayer").innerText = currentPlayer;
+  
+  document.getElementById("currentPlayer").innerText = newcPlayer;
 }
 
 /**
@@ -63,7 +84,7 @@ function checkWin() {
 function incXWon() {
   let count = parseInt(document.getElementById("xWon").innerText);
   count++;
-  document.getElementById("xWon").innerText = toString(count); 
+  document.getElementById("xWon").innerText = count.toString(); 
 }
 
 /**
@@ -72,16 +93,5 @@ function incXWon() {
 function incOWon() {
   let count = parseInt(document.getElementById("oWon").innerText);
   count++;
-  document.getElementById("oWon").innerText = toString(count); 
-}
-
-/**
- * Set xWon- and oWon-counter to zero and start game
- */
-function restart() {
-
-  document.getElementById("xWon").innerText = "0";
-  document.getElementById("oWon").innerText = "0";
-
-  startGame();
+  document.getElementById("oWon").innerText = count.toString(); 
 }
