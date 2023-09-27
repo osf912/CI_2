@@ -36,6 +36,8 @@ function startGame() {
       } else {
         alert("Field allready played!")
       };
+
+      checkWin();
     });
    }
 
@@ -75,6 +77,27 @@ function switchPlayer(cPlayer) {
  */
 function checkWin() {
 
+    let somebodyWon = false;
+
+    for (let i=0; i<9; i++) {
+      let field1 = gameStatus[winSchemes[i][0]];
+      let field2 = gameStatus[winSchemes[i][1]];
+      let field3 = gameStatus[winSchemes[i][2]];
+
+      if ((field1 === "") || (field2 === "") || (field3 === "")) {
+        continue;
+      }
+
+      if ((field1 === field2) && (field2 === field3)) {
+        
+        if (field1 === "X") {
+          incXWon();
+        } else {
+          incOWon();
+        };
+        break;
+      };
+    };
 }
 
 /**
