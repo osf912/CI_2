@@ -28,11 +28,14 @@ function startGame() {
     field.addEventListener("click", function() {
 
       let currentPlayer = document.getElementById("currentPlayer").innerText;
-      document.getElementById(fieldId).innerText = currentPlayer;
-
-      gameStatus[fieldId] = currentPlayer;
-
-      switchPlayer(currentPlayer); 
+      
+      if (gameStatus[fieldId] === "") {
+        document.getElementById(fieldId).innerText = currentPlayer;
+        gameStatus[fieldId] = currentPlayer;
+        switchPlayer(currentPlayer); 
+      } else {
+        alert("Field allready played!")
+      };
     });
    }
 
