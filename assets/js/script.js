@@ -32,20 +32,16 @@ function startGame() {
 
       gameStatus[fieldId] = currentPlayer;
 
-      incOWon();
-      incXWon();
       switchPlayer(currentPlayer); 
     });
    }
 
   rButton.addEventListener("click", function() {
 
-    console.log("Restart");
-
     document.getElementById("xWon").innerText = "0";
     document.getElementById("oWon").innerText = "0";
   
-    let fields = document.getElementsByClassName("field");
+    let fields = document.getElementsByClassName("fields");
     for (let field of fields){
       field.innerText = "";
     }
