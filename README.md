@@ -1,39 +1,53 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome,
+# A simple Tic Tac Toe
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+This is a simple Tic Tac Toe Game, where two persons can play Tic Tac Toe on the screen. If one wins the Game recognize that and count the wins for the player.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+There is a button to reset the counter, if you like.
 
-## Codeanywhere Reminders
+![Responsive Mockup](/assets/readme-images/AmIResponsive.png)
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+Font used is "Foggles" cursive, from Google Fonts to simulate a handwritten game.
 
-`python3 -m http.server`
+## Testing
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+  - I've tested the site in different browsers: Chrome, Firefox, Edge
+  - I've confirmed that the site is responsive and I added an "Am I Responsive" screenshot to the readme.
+  - I've checked that the links and the form works properly.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+### HTML Validator Testing
 
-`http_server`
+![HTML Validator](/assets/readme-images/HtmlChecker.jpg)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+  - In the beginning I gave the images of the learn about articles a width of 80%. A '%' is not allowed, it has to be pixels.
+  - confirmed.
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+### CSS Validator Testing
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+![HTML Validator](/assets/readme-images/CSS_Validator.jpg)
 
-To log into the Heroku toolbelt CLI:
+  - confirmed.
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### Lighthouse Testing
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+![HTML Validator](/assets/readme-images/lighthouse.jpg)
 
----
+  - The contrast of the beige-color and the warm white was not acceptable for lighthouse, so I had to switch to a black font.
+  - confirmed. 
 
-Happy coding!
+
+## Deployment
+
+  - Deployed to GitHub-Pages. The steps to deploy are as follows:
+    - In the GitHub repository, navigate to the 'Settings' tab
+    - On the righthand side choose 'Pages'.
+    - From the source section drop-down menu, select 'Deploy from a branch' and choose the 'main' branch.
+    - Once the master'main' branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+  - The live link can be found here: https://osf912.github.io/CI_2/
+
+## Thanks to:
+
+  - Google Font.
+  - Code Institute for making me build this, and letting me use a few ideas and elements of the course.
+  - YouTube (i.e. BroCode : A game of Tic Tac Toe written in javascript) for inspire me for the global variables WinSchemes and gameStatus and the checkWin() function.
