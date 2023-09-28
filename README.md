@@ -6,7 +6,7 @@ This is a simple Tic Tac Toe Game, where two persons can play Tic Tac Toe on the
 
 There is a button to reset the counter, if you like.
 
-![Responsive Mockup](/assets/readme-images/AmIResponsive.png)
+![Responsive Mockup](/assets/images/ttt_amiresponsive.jpg)
 
 Font used is "Foggles" cursive, from Google Fonts to simulate a handwritten game.
 
@@ -14,26 +14,24 @@ Font used is "Foggles" cursive, from Google Fonts to simulate a handwritten game
 
   - I've tested the site in different browsers: Chrome, Firefox, Edge
   - I've confirmed that the site is responsive and I added an "Am I Responsive" screenshot to the readme.
-  - I've checked that the links and the form works properly.
+  - I've tested the game.
 
 ### HTML Validator Testing
 
-![HTML Validator](/assets/readme-images/HtmlChecker.jpg)
+![HTML Validator](/assets/images/ttt_HTML_Validator.jpg)
 
-  - In the beginning I gave the images of the learn about articles a width of 80%. A '%' is not allowed, it has to be pixels.
   - confirmed.
 
 ### CSS Validator Testing
 
-![HTML Validator](/assets/readme-images/CSS_Validator.jpg)
+![HTML Validator](/assets/images/ttt_CSS_Validator.jpg)
 
   - confirmed.
 
 ### Lighthouse Testing
 
-![HTML Validator](/assets/readme-images/lighthouse.jpg)
+![HTML Validator](/assets/images/ttt_lighthouse.jpg)
 
-  - The contrast of the beige-color and the warm white was not acceptable for lighthouse, so I had to switch to a black font.
   - confirmed. 
 
 

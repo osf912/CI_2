@@ -1,3 +1,5 @@
+// The global variables are inspired by BroCode
+
 const winSchemes = [
 [0,1,2],
 [3,4,5],
@@ -35,7 +37,6 @@ function startGame() {
         gameStatus[fieldId] = currentPlayer;
         switchPlayer(currentPlayer); 
       } else {
-        console.log(gameStatus[fieldId]);
         alert("Box allready played!")
       };
 
@@ -87,10 +88,9 @@ function switchPlayer(cPlayer) {
 /**
  * Check if a player have three markings in a row and increment the winners
  * wonlist. If no "" is left in the status array, display draw (no winner)
+ * inspired and adapted from BroCode
  */
 function checkWin() {
-
-    console.log(gameStatus);
 
     for (let i=0; i<8; i++) {
       let winScheme = winSchemes[i];
