@@ -10,6 +10,11 @@ body {
   background-color: antiquewhite;
 }
 
+h1 {
+  font-family: 'Fuggles', cursive;
+  font-size: 60px;
+}
+
 #gameboard {
   display: flex;
   align-content: center;
@@ -34,8 +39,7 @@ body {
   box-sizing: border-box;
 
   font-family: 'Fuggles', cursive;
-  font-size: xxx-large;
-  font-weight: 800;
+  font-size: 60px;
 }
 
 #resetButton {
@@ -44,4 +48,21 @@ body {
   background-color: red;
   color: white;
   border-radius: 10px;
+}
+
+/* for medium screen sizes from 950px wide down */
+@media screen and (min-width: 800px) {
+
+#gameboard {
+    width: 450px;
+    height: 450px;
+    border: 6px solid slategray;
+}
+
+.fields {
+  width: 150px;
+  height: 150px;
+  font-size: 80px;
+}
+
 }
