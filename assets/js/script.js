@@ -1,20 +1,7 @@
-// The global variables are inspired by BroCode
 
-const winSchemes = [
-[0,1,2],
-[3,4,5],
-[6,7,8],
-[0,3,6],
-[1,4,7],
-[2,5,8],
-[0,4,8],
-[2,4,6]
-];
-
-let gameStatus = [ "", "", "", "", "", "", "", "", "" ];
 
 // Wait for the DOM to be loaded, then start game
-document.addEventListener("DOMContentLoaded", startGame)
+document.addEventListener("DOMContentLoaded", startGame);
 
 /**
  * Start / Restart game and set all parameters to start
@@ -24,34 +11,40 @@ function startGame() {
   let fields = document.getElementsByClassName("fields");
   let rButton = document.getElementById("resetButton");
 
-  //Add Eventlistener for fields on gameboard
+  // This variable was inspired by BroCode
+  let gameStatus = [ "", "", "", "", "", "", "", "", "" ];
+
+  //Add Eventlistener for fields on gameboard, check for allready played fields and if there are a winner
 
   for (let field of fields) {
     let fieldId = field.getAttribute("id");
     field.addEventListener("click", function() {
 
       let currentPlayer = document.getElementById("currentPlayer").innerText;
-      
+    
       if (gameStatus[fieldId] === "") {
         document.getElementById(fieldId).innerText = currentPlayer;
         gameStatus[fieldId] = currentPlayer;
-        switchPlayer(currentPlayer); 
+        switchPlayer(currentPlayer);
       } else {
-        alert("Box allready played!")
-      };
+        alert("Box allready played!");
+      }
 
-      checkWin();
-    });
-   }
+      checkWin(gameStatus);
+   });
+  }
+
+   // Add eventlistener for Resetbutton
 
   rButton.addEventListener("click", function() {
 
     document.getElementById("xWon").innerText = "0";
     document.getElementById("oWon").innerText = "0";
-  
+
     resetGameboard();
   });
 }
+
 
 /**
  * Reset Gameboard and -status, First move X
@@ -59,7 +52,7 @@ function startGame() {
 function resetGameboard() {
 
   let fields = document.getElementsByClassName("fields");
-  
+
   for (let field of fields){
     field.innerText = "";
   }
@@ -73,15 +66,15 @@ function resetGameboard() {
  * Get Player from DOM and switch it. Display the new player
  */
 function switchPlayer(cPlayer) {
-  
+
   let newcPlayer = "";
 
   if (cPlayer === "X") {
     (newcPlayer = "O");
   } else {
     (newcPlayer = "X");
-  };
-  
+  }
+
   document.getElementById("currentPlayer").innerText = newcPlayer;
 }
 
@@ -90,34 +83,46 @@ function switchPlayer(cPlayer) {
  * wonlist. If no "" is left in the status array, display draw (no winner)
  * inspired and adapted from BroCode
  */
-function checkWin() {
+function checkWin(gameStatus) {
 
-    for (let i=0; i<8; i++) {
-      let winScheme = winSchemes[i];
-      let field1 = gameStatus[winScheme[0]];
-      let field2 = gameStatus[winScheme[1]];
-      let field3 = gameStatus[winScheme[2]];
+  // This const was inspired by BroCode
+  const winSchemes = [
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+    [0,3,6],
+    [1,4,7],
+    [2,5,8],
+    [0,4,8],
+    [2,4,6]
+    ];
 
-      if ((field1 === "") || (field2 === "") || (field3 === "")) {
-        continue;
+  for (let i=0; i<8; i++) {
+    let winScheme = winSchemes[i];
+    let field1 = gameStatus[winScheme[0]];
+    let field2 = gameStatus[winScheme[1]];
+    let field3 = gameStatus[winScheme[2]];
+
+    if ((field1 === "") || (field2 === "") || (field3 === "")) {
+      continue;
       }
 
-      if ((field1 === field2) && (field2 === field3)) {
- 
-        if (field1 === "X") {
-          incXWon();
-        } else {
-          incOWon();
-        };
-        resetGameboard();
-        break;
-      };
+    if ((field1 === field2) && (field2 === field3)) {
 
-      if(!gameStatus.includes("")) {
-        alert("Draw... No winner!");
-        resetGameboard();
+      if (field1 === "X") {
+        incXWon();
+      } else {
+        incOWon();
       }
-    };
+      resetGameboard();
+      break;
+      }
+
+    if(!gameStatus.includes("")) {
+      alert("Draw... No winner!");
+      resetGameboard();
+    }
+  }
 }
 
 /**
@@ -126,7 +131,7 @@ function checkWin() {
 function incXWon() {
   let count = parseInt(document.getElementById("xWon").innerText);
   count++;
-  document.getElementById("xWon").innerText = count.toString(); 
+  document.getElementById("xWon").innerText = count.toString();
   alert("X won!");
 }
 
