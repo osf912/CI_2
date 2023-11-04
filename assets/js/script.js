@@ -9,14 +9,14 @@ function startGame() {
   let fields = document.getElementsByClassName("fields");
   let rButton = document.getElementById("resetButton");
 
-  // This variable was inspired by BroCode
+  // This variable was inspired by BroCode (1/2)
   let gameStatus = [ "", "", "", "", "", "", "", "", "" ];
 
-  //Add Eventlistener for fields on gameboard, check for allready played fields and if there are a winner
+  //Add Eventlistener for fields on gameboard, (markField checks for allready played fields and if there is a winner)
   for (let field of fields) {
     let fieldId = field.getAttribute("id");
     field.addEventListener("click", () => {
-      gameStatus = markField(gameStatus, fieldId) 
+      gameStatus = markField(gameStatus, fieldId); 
     } );
   }
 
@@ -30,10 +30,14 @@ function startGame() {
   });
 }
 
+/**
+ * Get the player from the DOM and mark clicked field with player sign
+ */
 function markField(gameStatus, fieldId) {
 
   let currentPlayer = document.getElementById("currentPlayer").innerText;
 
+  // Check if field allready played
   if (gameStatus[fieldId] === "") {
     document.getElementById(fieldId).innerText = currentPlayer;
     gameStatus[fieldId] = currentPlayer;
@@ -44,7 +48,7 @@ function markField(gameStatus, fieldId) {
 
   gameStatus = checkWin(gameStatus);
 
-  return gameStatus
+  return gameStatus;
 }
 
 /**
@@ -62,7 +66,7 @@ function resetGameboard(gameStatus) {
 
   document.getElementById("currentPlayer").innerText = "X";
 
-  return gameStatus
+  return gameStatus;
 }
 
 /**
@@ -88,7 +92,7 @@ function switchPlayer(cPlayer) {
  */
 function checkWin(gameStatus) {
 
-  // This const was inspired by BroCode
+  // This const was inspired by BroCode (2/2)
   const winSchemes = [
     [0,1,2],
     [3,4,5],
@@ -127,7 +131,7 @@ function checkWin(gameStatus) {
     }
   }
 
-  return gameStatus
+  return gameStatus;
 }
 
 /**

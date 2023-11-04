@@ -2,7 +2,7 @@
 
 # A simple Tic Tac Toe
 
-This is a simple Tic Tac Toe Game, where two persons can play Tic Tac Toe on the screen. If one wins the Game recognize that and count the wins for the player.
+This is a simple Tic Tac Toe Game, where two persons can play Tic Tac Toe on the screen. If one wins, the Game recognize that and count the wins for the player.
 
 There is a button to reset the counter, if you like.
 
@@ -12,9 +12,12 @@ Font used is "Foggles" cursive, from Google Fonts to simulate a handwritten game
 
 ## Testing
 
-  - I've tested the site in different browsers: Chrome, Firefox, Edge
-  - I've confirmed that the site is responsive and I added an "Am I Responsive" screenshot to the readme.
-  - I've tested the game.
+  - I've tested the site in different browsers: Chrome, Firefox, Edge,
+  - and confirmed that the site is responsive and I added an "Am I Responsive" screenshot to the README,
+  - and tested the functionality game,
+  - and tested the counters by playing,
+  - and tested the Reset Button,
+  - and checked the validation with the following Validator:
 
 ### HTML Validator Testing
 
@@ -24,16 +27,22 @@ Font used is "Foggles" cursive, from Google Fonts to simulate a handwritten game
 
 ### CSS Validator Testing
 
-![HTML Validator](/assets/images/ttt_CSS_Validator.jpg)
+![CSS Validator](/assets/images/ttt_CSS_Validator.jpg)
 
   - confirmed.
 
 ### Lighthouse Testing
 
-![HTML Validator](/assets/images/ttt_lighthouse.jpg)
+![Lighthouse Validator](/assets/images/ttt_lighthouse.jpg)
 
   - confirmed. 
 
+### JSHint Testing
+
+![JSHint Validator](/assets/images/JSHint.jpg)
+
+  - get one warning. I've externalized the anonimous function to markField(), but JSHint doesn't stop warning.
+  - A solution would be to delete the for-loop and ad the nine Eventlisteners of the Fields separately, but the for-loop represents the DRY-rule in a better way.
 
 ## Deployment
 
