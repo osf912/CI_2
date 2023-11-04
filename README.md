@@ -14,6 +14,10 @@ The Game is full responsive:
 
 Font used is "Foggles" cursive, from Google Fonts to simulate a handwritten game.
 
+The colors used are antiquewhite like an old piece of paper.
+Black Text and X'n'O's on a grey outlined board.
+The resetbutton is in signal red, to warn to not hit it, if you don't really want it. 
+
 ![Tic Tac Toe Game](/assets/images/ttt_game.jpg)
 
 ## Features
@@ -75,6 +79,12 @@ Font used is "Foggles" cursive, from Google Fonts to simulate a handwritten game
 
   - get one warning. I've externalized the anonimous function to markField(), but JSHint doesn't stop warning.
   - A solution would be to delete the for-loop and ad the nine Eventlisteners of the Fields separately, but the for-loop represents the DRY-rule in a better way.
+
+### Bugs
+
+  - There are no bugs left.
+  - I started with one global const winSchemes and a global variable gameStatus. In the process I moved them to the corresponding functions, but then need to exchange gameStatus.
+  - I've tried to get rid of the JSHint warning, but...
 
 ## Deployment
 
