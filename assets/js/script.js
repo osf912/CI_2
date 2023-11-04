@@ -1,5 +1,3 @@
-
-
 // Wait for the DOM to be loaded, then start game
 document.addEventListener("DOMContentLoaded", startGame);
 
@@ -15,41 +13,44 @@ function startGame() {
   let gameStatus = [ "", "", "", "", "", "", "", "", "" ];
 
   //Add Eventlistener for fields on gameboard, check for allready played fields and if there are a winner
-
   for (let field of fields) {
     let fieldId = field.getAttribute("id");
-    field.addEventListener("click", function() {
-
-      let currentPlayer = document.getElementById("currentPlayer").innerText;
-    
-      if (gameStatus[fieldId] === "") {
-        document.getElementById(fieldId).innerText = currentPlayer;
-        gameStatus[fieldId] = currentPlayer;
-        switchPlayer(currentPlayer);
-      } else {
-        alert("Box allready played!");
-      }
-
-      checkWin(gameStatus);
-   });
+    field.addEventListener("click", () => {
+      gameStatus = markField(gameStatus, fieldId) 
+    } );
   }
 
-   // Add eventlistener for Resetbutton
-
-  rButton.addEventListener("click", function() {
+  // Add eventlistener for Resetbutton
+  rButton.addEventListener("click", () => {
 
     document.getElementById("xWon").innerText = "0";
     document.getElementById("oWon").innerText = "0";
 
-    resetGameboard();
+    gameStatus = resetGameboard(gameStatus);
   });
 }
 
+function markField(gameStatus, fieldId) {
+
+  let currentPlayer = document.getElementById("currentPlayer").innerText;
+
+  if (gameStatus[fieldId] === "") {
+    document.getElementById(fieldId).innerText = currentPlayer;
+    gameStatus[fieldId] = currentPlayer;
+    switchPlayer(currentPlayer);
+  } else {
+    alert("Box allready played!");
+  }
+
+  gameStatus = checkWin(gameStatus);
+
+  return gameStatus
+}
 
 /**
  * Reset Gameboard and -status, First move X
  */
-function resetGameboard() {
+function resetGameboard(gameStatus) {
 
   let fields = document.getElementsByClassName("fields");
 
@@ -60,6 +61,8 @@ function resetGameboard() {
   gameStatus = [ "", "", "", "", "", "", "", "", "" ];
 
   document.getElementById("currentPlayer").innerText = "X";
+
+  return gameStatus
 }
 
 /**
@@ -114,15 +117,17 @@ function checkWin(gameStatus) {
       } else {
         incOWon();
       }
-      resetGameboard();
+      gameStatus = resetGameboard(gameStatus);
       break;
       }
 
     if(!gameStatus.includes("")) {
       alert("Draw... No winner!");
-      resetGameboard();
+      gameStatus = resetGameboard(gameStatus);
     }
   }
+
+  return gameStatus
 }
 
 /**
